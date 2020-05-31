@@ -1,0 +1,19 @@
+<%- include ('../partials/adminHeader') %>
+
+<h2 class="page-title">Edit a category<h2>
+<a href="/admin/categories" class="btn btn-primary custom-btn">Back to all categories</a>
+<br><br>
+
+<!-- WITH RENDERED WEBSITE -->
+<!-- <form action="/admin/categories/edit-category/<category.id>" method="post"> -->
+<!-- WITH OUR API -->
+    <form class="form--edit-category">
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" name="title" id="title" value="<%= category.title %>" placeholder="Title" class="form-control">
+    </div>
+
+    <button class="btn btn-default custom-btn" data-category-id="<%= category._id %>">Submit</button>
+</form>
+
+<%- include ('../partials/adminFooter') %>

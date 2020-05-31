@@ -1,0 +1,341 @@
+[
+  {
+    "_id": "5ec07d2bc0740e51b4be61d3",
+    "image": "apples1.jpg",
+    "imageGallery": [
+      "apples-1-2.jpg",
+      "apples-1-3.jpg",
+      "apples-1-4.jpg",
+      "apples-1-5.jpg"
+    ],
+    "title": "Apples",
+    "description": "Some apples",
+    "category": "fruits",
+    "price": 2,
+    "slug": "apples",
+    "priceDiscount": 0.1
+  },
+  {
+    "_id": "5ec07dbec0740e51b4be61d5",
+    "image": "bananas1.jpg",
+    "imageGallery": [
+      "bananas-2-1.jpg",
+      "bananas-2-3.jpg",
+      "bananas-2-4.jpg",
+      "bananas-2-5.jpg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "Bananas",
+    "description": "Some bananas",
+    "category": "fruits",
+    "price": 12,
+    "slug": "bananas",
+    "priceDiscount": 0.6
+  },
+  {
+    "_id": "5ec07de5c0740e51b4be61d6",
+    "image": "grapes1.jpg",
+    "imageGallery": [
+      "grapes-8-2.jpg",
+      "grapes-8-3.jpg",
+      "grapes-8-4.png",
+      "grapes-8-5.jpg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "Grape",
+    "description": "Some grapes",
+    "category": "fruits",
+    "price": 5,
+    "slug": "grape",
+    "priceDiscount": 0.3
+  },
+  {
+    "_id": "5ec07e59c0740e51b4be61d7",
+    "image": "blueshirt1.jpg",
+    "imageGallery": [
+      "blueshirt-3-2.jpg",
+      "blueshirt-3-3.jpg",
+      "blueshirt-3-4.jpg",
+      "blueshirt-3-5.png"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "Blue Shirt",
+    "description": "Some Blue Shirt",
+    "category": "t-shirts",
+    "price": 15,
+    "slug": "blue-shirt",
+    "priceDiscount": 0.8
+  },
+  {
+    "_id": "5ec07e6bc0740e51b4be61d8",
+    "image": "redshirt1.jpg",
+    "imageGallery": [
+      "redshirt-10-2.jpg",
+      "redshirt-10-3.jpg",
+      "redshirt-10-4.jpg",
+      "redshirt-10-5.jpg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "Red Shirt",
+    "description": "Some Red Shirt",
+    "category": "t-shirts",
+    "price": 10,
+    "slug": "red-shirt",
+    "priceDiscount": 0.5
+  },
+  {
+    "_id": "5ec07e8cc0740e51b4be61d9",
+    "image": "greenshirt1.jpg",
+    "imageGallery": [
+      "greenshirt-9-2.jpg",
+      "greenshirt-9-3.jpg",
+      "greenshirt-9-4.jpg",
+      "greenshirt-9-5.jpg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "Green Shirt",
+    "description": "Some Green Shirt",
+    "category": "t-shirts",
+    "price": 7,
+    "slug": "green-shirt",
+    "priceDiscount": 0.4
+  },
+  {
+    "_id": "5ec07ec8c0740e51b4be61da",
+    "image": "food1.jpeg",
+    "imageGallery": [
+      "food-6-2.jpeg",
+      "food-6-3.jpeg",
+      "food-6-4.jpeg",
+      "food-6-5.jpeg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "Food",
+    "description": "Delicious",
+    "category": "food",
+    "price": 3,
+    "slug": "food",
+    "priceDiscount": 0.2
+  },
+  {
+    "_id": "5ec07f09c0740e51b4be61db",
+    "image": "food2.jpeg",
+    "imageGallery": [
+      "food-6-1.jpeg",
+      "food-6-3.jpeg",
+      "food-6-4.jpeg",
+      "food-6-5.jpeg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "Food2",
+    "description": "Tasty",
+    "category": "food",
+    "price": 5,
+    "slug": "food2",
+    "priceDiscount": 0.3
+  },
+  {
+    "_id": "5ec07f3ac0740e51b4be61dc",
+    "image": "food3.jpeg",
+    "imageGallery": [
+      "food-6-1.jpeg",
+      "food-6-2.jpeg",
+      "food-6-4.jpeg",
+      "food-6-5.jpeg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "Food3",
+    "description": "Very delicious",
+    "category": "food",
+    "price": 4.5,
+    "slug": "food3",
+    "priceDiscount": 0.2
+  },
+  {
+    "_id": "5ec07f78c0740e51b4be61dd",
+    "image": "drink4.jpeg",
+    "imageGallery": [
+      "drink-4-1.jpeg",
+      "drink-4-2.jpg",
+      "drink-4-3.jpeg",
+      "drink-4-5.jpeg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "Beer",
+    "description": "Best when chilled",
+    "category": "drinks",
+    "price": 0.99,
+    "slug": "beer",
+    "priceDiscount": 0
+  },
+  {
+    "_id": "5ec07fb6c0740e51b4be61de",
+    "image": "drink1.jpeg",
+    "imageGallery": [
+      "drink-4-2.jpg",
+      "drink-4-3.jpeg",
+      "drink-4-4.jpeg",
+      "drink-4-5.jpeg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "Drink",
+    "description": "Fresh",
+    "category": "drinks",
+    "price": 0.85,
+    "slug": "drink",
+    "priceDiscount": 0
+  },
+  {
+    "_id": "5ec07fe4c0740e51b4be61df",
+    "image": "drink5.jpeg",
+    "imageGallery": [
+      "drink-4-1.jpeg",
+      "drink-4-2.jpg",
+      "drink-4-3.jpeg",
+      "drink-4-4.jpeg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "Can-drink",
+    "description": "Refreshing",
+    "category": "drinks",
+    "price": 0.65,
+    "slug": "can-drink",
+    "priceDiscount": 0
+  },
+  {
+    "_id": "5ec0807f2a8c273d241e7a93",
+    "image": "game1.jpeg",
+    "imageGallery": [
+      "game-7-2.jpeg",
+      "game-7-3.jpeg",
+      "game-7-4.jpg",
+      "game-7-5.jpeg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "X-Box",
+    "description": "Kills boredom",
+    "category": "games",
+    "price": 100,
+    "slug": "x-box",
+    "priceDiscount": 5
+  },
+  {
+    "_id": "5ec0809d2a8c273d241e7a94",
+    "image": "game3.jpeg",
+    "imageGallery": [
+      "game-7-1.jpeg",
+      "game-7-2.jpeg",
+      "game-7-4.jpg",
+      "game-7-5.jpeg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "PSP",
+    "description": "Entertaining",
+    "category": "games",
+    "price": 63,
+    "slug": "psp",
+    "priceDiscount": 3.2
+  },
+  {
+    "_id": "5ec080ea2a8c273d241e7a95",
+    "image": "game4.jpg",
+    "imageGallery": [
+      "game-7-1.jpeg",
+      "game-7-2.jpeg",
+      "game-7-3.jpeg",
+      "game-7-5.jpeg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "Game",
+    "description": "Never get bored with this little piece",
+    "category": "games",
+    "price": 25,
+    "slug": "game",
+    "priceDiscount": 1.3
+  },
+  {
+    "_id": "5ec081892a8c273d241e7a96",
+    "image": "electronic3.jpeg",
+    "imageGallery": [
+      "electronic-5-1.jpeg",
+      "electronic-5-2.jpeg",
+      "electronic-5-4.jpeg",
+      "electronic-5-5.jpeg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "Digital Camera",
+    "description": "You want a beautiful and clear images, then try this out.....",
+    "category": "electronics",
+    "price": 120,
+    "slug": "digital-camera",
+    "priceDiscount": 6
+  },
+  {
+    "_id": "5ec081cc2a8c273d241e7a97",
+    "image": "electronic4.jpeg",
+    "imageGallery": [
+      "electronic-5-1.jpeg",
+      "electronic-5-2.jpeg",
+      "electronic-5-3.jpeg",
+      "electronic-5-5.jpeg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "Headset",
+    "description": "Are you a lover of music, then this is the best piece for you",
+    "category": "electronics",
+    "price": 25,
+    "slug": "headset",
+    "priceDiscount": 1.3
+  },
+  {
+    "_id": "5ec0820c2a8c273d241e7a98",
+    "image": "electronic1.jpeg",
+    "imageGallery": [
+      "electronic-5-2.jpeg",
+      "electronic-5-3.jpeg",
+      "electronic-5-4.jpeg",
+      "electronic-5-5.jpeg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "iPhone X",
+    "description": "Just the best at the moment",
+    "category": "electronics",
+    "price": 1000,
+    "slug": "iphone-x",
+    "priceDiscount": 50
+  },
+  {
+    "_id": "5ec0823b2a8c273d241e7a99",
+    "image": "electronic2.jpeg",
+    "imageGallery": [
+      "electronic-5-1.jpeg",
+      "electronic-5-3.jpeg",
+      "electronic-5-4.jpeg",
+      "electronic-5-5.jpeg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "iPad",
+    "description": "Simply the best",
+    "category": "electronics",
+    "price": 800,
+    "slug": "ipad",
+    "priceDiscount": 40
+  },
+  {
+    "_id": "5ec082892a8c273d241e7a9a",
+    "image": "redshirt5.jpg",
+    "imageGallery": [
+      "redshirt-10-1.jpg",
+      "redshirt-10-2.jpg",
+      "redshirt-10-3.jpg",
+      "redshirt-10-5.jpg"
+    ],
+    "createdAt": "2020-05-22T20:07:23.931Z",
+    "title": "New Red T-Shirt",
+    "description": "Cool",
+    "category": "t-shirts",
+    "price": 13,
+    "slug": "new-red-t-shirt",
+    "priceDiscount": 0.7
+  }
+]

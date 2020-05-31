@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "5ebf57697b74830bb4333809",
+    "title": "Food",
+    "slug": "food"
+  },
+  {
+    "_id": "5ebf57757b74830bb433380a",
+    "title": "Drinks",
+    "slug": "drinks"
+  },
+  {
+    "_id": "5ebf577d7b74830bb433380b",
+    "title": "Fruits",
+    "slug": "fruits"
+  },
+  {
+    "_id": "5ebf57967b74830bb433380c",
+    "title": "T-shirts",
+    "slug": "t-shirts"
+  },
+  {
+    "_id": "5ebf57a07b74830bb433380d",
+    "title": "Games",
+    "slug": "games"
+  },
+  {
+    "_id": "5ebf57b07b74830bb433380e",
+    "title": "Electronics",
+    "slug": "electronics"
+  }
+]
