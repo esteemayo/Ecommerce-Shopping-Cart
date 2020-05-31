@@ -1,11 +1,12 @@
 const fs = require('fs');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+// const mongoose = require('mongoose');
+// const dotenv = require('dotenv');
 const Category = require('../../models/Category');
 const Product = require('../../models/Product');
 const Page = require('../../models/Page');
 const User = require('../../models/User');
 
+/*
 dotenv.config({ path: './config.env' });
 
 const DB = process.env.DATABASE_LOCAL;
@@ -21,6 +22,9 @@ mongoose.connect(DB, {
         console.log('MongoBD Connected...');
     })
     .catch(err => console.log(`COULD NOT CONNECT TO MONGODB: ${err}`));
+*/
+
+require('../../startup/db')();
 
 // READ JSON FILE
 const products = JSON.parse(fs.readFileSync(`${__dirname}/products.json`, 'utf-8'));
