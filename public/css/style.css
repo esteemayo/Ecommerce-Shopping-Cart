@@ -324,3 +324,7 @@ table.alignmiddle {
 .badge {
   background-color: #ff00ae;
 }
+
+.badge.cart {
+  background-color: red;
+}

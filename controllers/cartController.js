@@ -1,3 +1,4 @@
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const Product = require('../models/Product');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
@@ -13,7 +14,8 @@ exports.getAddCart = catchAsync(async (req, res, next) => {
             qty: 1,
             price: parseFloat(product.price).toFixed(2),
             priceDiscount: parseFloat(product.priceDiscount).toFixed(2),
-            image: `/img/products/${product.image}`
+            image: `/img/products/${product.image}`,
+            id: product._id
         });
     } else {
         let cart = req.session.cart;
@@ -33,11 +35,12 @@ exports.getAddCart = catchAsync(async (req, res, next) => {
                 qty: 1,
                 price: parseFloat(product.price).toFixed(2),
                 priceDiscount: parseFloat(product.priceDiscount).toFixed(2),
-                image: `/img/products/${product.image}`
+                image: `/img/products/${product.image}`,
+                id: product._id
             });
         }
     }
-    // console.log(req.session.cart);
+    console.log(req.session.cart);
     res.redirect('back');
 });
 
@@ -89,7 +92,36 @@ exports.clearCart = (req, res) => {
     res.redirect('back');
 };
 
-exports.buyNow = (req, res) => {
-    delete req.session.cart;
-    res.status(200).json({ status: 'success' });
-};
+// exports.buyNow = (req, res) => {
+//     delete req.session.cart;
+//     res.status(200).json({ status: 'success' });
+// };
+
+exports.buyNow = catchAsync(async (req, res, next) => {
+    const cart = req.session.cart;
+
+    const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        success_url: `${req.protocol}://${req.get('host')}/products`,
+        cancel_url: `${req.protocol}://${req.get('host')}/cart/checkout`,
+        // customer_email: req.user.email,
+        // client_reference_id: cart.id,
+        line_items: [
+            {
+                name: req.session.cart.title,
+                description: req.session.cart.description,
+                image: [
+                    `${req.protocol}://${req.get('host')}/img/products/${req.session.cart.image}`
+                ],
+                amount: req.session.cart.price * 100,
+                currency: 'usd',
+                quantity: req.session.cart.qty
+            }
+        ]
+    });
+
+    res.status(200).json({
+        status: 'success',
+        session
+    });
+});
