@@ -1,10 +1,10 @@
-const endpoint = 'http://localhost:9000/api/v1/users';
+const apiEndPoint = 'http://localhost:9000/api/v1/users';
 
 const signup = async (name, email, username, password, passwordConfirm) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: `${endpoint}/signup`,
+            url: `${apiEndPoint}/signup`,
             data: {
                 name,
                 email,
@@ -31,7 +31,7 @@ const login = async (username, password) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: `${endpoint}/login`,
+            url: `${apiEndPoint}/login`,
             data: {
                 username,
                 password
@@ -54,7 +54,7 @@ const logout = async () => {
     try {
         const res = await axios({
             method: 'GET',
-            url: `${endpoint}/logout`
+            url: `${apiEndPoint}/logout`
         });
 
         // console.log(res);
