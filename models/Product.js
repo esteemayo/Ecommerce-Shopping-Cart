@@ -9,7 +9,7 @@ const productSchema = new mongoose.Schema({
         unique: true,
         trim: true,
         maxlength: [20, 'A product title must have less or equal than 20 characters'],
-        minlength: [3, 'A page title must have more or equal than 3 characters']
+        minlength: [3, 'A product title must have more or equal than 3 characters']
     },
     slug: String,
     description: {

@@ -25,7 +25,7 @@ exports.addProduct = catchAsync(async (req, res) => {
 });
 
 exports.createProduct = catchAsync(async (req, res, next) => {
-    const product = await Product.create(req.body);
+    await Product.create(req.body);
 
     res.status(201).redirect('/admin/products');
 });

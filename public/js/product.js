@@ -1,20 +1,15 @@
 const productEndpoint = 'http://localhost:9000/api/v1/products';
 
-const createProduct = async (title, description, category, price) => {
+const createProduct = async data => {
     try {
-        const res = await axios({
+        const { data: res } = await axios({
             method: 'POST',
             url: `${productEndpoint}`,
-            data: {
-                title,
-                description,
-                category,
-                price
-            }
+            data
         });
 
         // console.log(res);
-        if (res.data.status === 'success') {
+        if (res.status === 'success') {
             window.setTimeout(() => {
                 showAlert('success', 'Product added!');
                 location.assign('/admin/products');
@@ -25,21 +20,16 @@ const createProduct = async (title, description, category, price) => {
     }
 };
 
-const editProduct = async (prodId, title, description, category, price) => {
+const editProduct = async (data, prodId) => {
     try {
-        const res = await axios({
+        const { data: res } = await axios({
             method: 'PATCH',
             url: `${productEndpoint}/${prodId}`,
-            data: {
-                title,
-                description,
-                category,
-                price
-            }
+            data
         });
 
         // console.log(res);
-        if (res.data.status === 'success') {
+        if (res.status === 'success') {
             window.setTimeout(() => {
                 showAlert('success', 'Product updated.');
                 location.assign('/admin/products');
@@ -52,7 +42,7 @@ const editProduct = async (prodId, title, description, category, price) => {
 
 const deleteProduct = async prodId => {
     try {
-        const res = await axios({
+        await axios({
             method: 'DELETE',
             url: `${productEndpoint}/${prodId}`
         });
@@ -74,27 +64,41 @@ if (productForm)
     productForm.addEventListener('submit', e => {
         e.preventDefault();
 
-        const title = document.getElementById('title').value;
-        const description = document.getElementById('description').value;
-        const category = document.getElementById('category').value;
-        const price = document.getElementById('title').value;
+        const form = new FormData();
 
-        createProduct(title, description, category, price);
-        console.log(title, description, category, price);
+        form.append('title', document.getElementById('title').value);
+        form.append('description', document.getElementById('description').value);
+        form.append('category', document.getElementById('category').value);
+        form.append('price', document.getElementById('price').value);
+        form.append('img', document.getElementById('img').files[0]);
+        form.append('imageGallery', document.getElementById('imageGallery').files[0]);
+        form.append('imageGallery', document.getElementById('imageGallery').files[1]);
+        form.append('imageGallery', document.getElementById('imageGallery').files[2]);
+        form.append('imageGallery', document.getElementById('imageGallery').files[3]);
+
+        createProduct(form);
     });
 
 if (editProductForm)
     editProductForm.addEventListener('click', e => {
         e.preventDefault();
 
-        const title = document.getElementById('title').value;
-        const description = document.getElementById('description').value;
-        const category = document.getElementById('category').value;
-        const price = document.getElementById('title').value;
+        const form = new FormData();
 
-        const { productId } = e.target.dataset;
+        form.append('title', document.getElementById('title').value);
+        form.append('description', document.getElementById('description').value);
+        form.append('category', document.getElementById('category').value);
+        form.append('price', document.getElementById('price').value);
+        form.append('img', document.getElementById('img').files[0]);
+        form.append('imageGallery', document.getElementById('imageGallery').files[0]);
+        form.append('imageGallery', document.getElementById('imageGallery').files[1]);
+        form.append('imageGallery', document.getElementById('imageGallery').files[2]);
+        form.append('imageGallery', document.getElementById('imageGallery').files[3]);
 
-        editProduct(productId, title, description, category, price);
+        // const { productId } = e.target.dataset;
+        const productId = document.getElementById('productId').value;
+
+        editProduct(form, productId);
     });
 
 if (delProduct)
