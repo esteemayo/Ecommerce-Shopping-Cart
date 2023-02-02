@@ -1,6 +1,6 @@
 const express = require('express');
 
-// START EXPRESS APP
+// start express app
 const app = express();
 
 require('./startup/routes')(app);
