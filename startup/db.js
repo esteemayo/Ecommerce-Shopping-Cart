@@ -1,20 +1,20 @@
-const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
 
 dotenv.config({ path: './config.env' });
 
-const DB = process.env.DATABASE_LOCAL;
+const db = process.env.DATABASE_LOCAL;
 
 module.exports = () => {
-    mongoose.connect(DB, {
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false
+  mongoose.connect(db, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+  })
+    .then(cons => {
+      // console.log(cons.connections);
+      console.log('MongoDB Connected...');
     })
-        .then(cons => {
-            // console.log(cons.connections);
-            console.log('MongoDB Connected...');
-        })
-        .catch(err => console.log(`COULD NOT CONNECT TO MONGODB: ${err}`));
-}
+    .catch(err => console.log(`COULD NOT CONNECT TO MONGODB: ${err}`));
+};
