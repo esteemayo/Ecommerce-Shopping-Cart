@@ -39,7 +39,15 @@ exports.getOne = Model => catchAsync(async (req, res, next) => {
 });
 
 exports.createOne = Model => catchAsync(async (req, res, next) => {
-    const doc = await Model.create(req.body);
+    let doc = req.body;
+
+    if (req.file) {
+        doc.image = req.file.filename;
+    } else if (req.files) {
+        doc.galleryImage = req.files.filename;
+    }
+
+    doc = await Model.create(doc);
 
     res.status(201).json({
         status: 'success',
@@ -50,7 +58,15 @@ exports.createOne = Model => catchAsync(async (req, res, next) => {
 });
 
 exports.updateOne = Model => catchAsync(async (req, res, next) => {
-    const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
+    let doc = req.body;
+
+    if (req.file) {
+        doc.image = req.file.filename;
+    } else if (req.files) {
+        doc.galleryImage = req.files.filename;
+    }
+
+    doc = await Model.findByIdAndUpdate(req.params.id, doc, {
         new: true,
         runValidators: true
     });
