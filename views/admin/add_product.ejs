@@ -1,65 +1,99 @@
 <%- include ('../partials/adminHeader') %>
 
-<h2 class="page-title">Add a product<h2>
-<a href="/admin/products" class="btn btn-primary custom-btn">Back to all products</a>
-<br><br>
+<h2 class="page-title">
+  Add a product
+  <h2>
+    <a href="/admin/products" class="btn btn-primary custom-btn"
+      >Back to all products</a
+    >
+    <br /><br />
 
-<!-- RENDERED WEBSITE -->
-<form action="/admin/products/add-product" method="post">
-    <!-- API -->
-<!-- <form class="form--add-product"> -->
-    <div class="form-group">
+    <!-- RENDERED WEBSITE -->
+    <form action="/admin/products/add-product" method="post">
+      <!-- API -->
+      <!-- <form class="form--add-product"> -->
+      <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" name="title" id="title" placeholder="Title" class="form-control">
-    </div>
-    <div class="form-group">
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Title"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
         <label for="description">Description</label>
-        <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
-    </div>
+        <textarea
+          class="form-control"
+          name="description"
+          id="description"
+          cols="30"
+          rows="10"
+          placeholder="Description"
+        ></textarea>
+      </div>
 
-    <div class="form-group">
+      <div class="form-group">
         <label for="category">Category</label>
         <select name="category" id="category" class="form-control">
-            <% categories.forEach(category => { %>
-                <option value="<%= category.slug %>" ><%= category.title %></option>
-            <% }); %>
+          <% categories.forEach(category => { %>
+          <option value="<%= category.slug %>"><%= category.title %></option>
+          <% }); %>
         </select>
-    </div>
+      </div>
 
-    <div class="form-group">
+      <div class="form-group">
         <label for="price">Price</label>
-        <input type="text" name="price" id="price" placeholder="Price" class="form-control">
-    </div>
+        <input
+          type="text"
+          name="price"
+          id="price"
+          placeholder="Price"
+          class="form-control"
+        />
+      </div>
 
-    <div class="form-group">
+      <div class="form-group">
         <label for="image">Image</label>
-        <input type="file" name="image" class="form-control" id="img">
-        <img src="" id="imgPreview" alt="">
-    </div>
-    
-    <div class="form-group">
+        <input type="file" name="image" class="form-control" id="img" />
+        <img src="" id="imgPreview" alt="" />
+      </div>
+
+      <div class="form-group">
         <label for="imageGallery">Image Gallery</label>
-        <input type="file" name="imageGallery" id="imageGallery" multiple max="4">
-    </div>
+        <input
+          type="file"
+          name="imageGallery"
+          id="imageGallery"
+          multiple
+          max="4"
+        />
+      </div>
 
-    <button class="btn btn-default custom-btn">Submit</button>
-</form>
+      <button class="btn btn-default custom-btn">Submit</button>
+    </form>
 
-<script>
-    function readURL(input) {
-        if(input.files && input.files[0]) {
-            var reader = new FileReader();
+    <script>
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
 
-            reader.onload = function(e) {
-                $('#imgPreview').attr('src', e.target.result).width(100).height(100);
-            }
-            reader.readAsDataURL(input.files[0]);
+          reader.onload = function (e) {
+            $('#imgPreview')
+              .attr('src', e.target.result)
+              .width(100)
+              .height(100);
+          };
+          reader.readAsDataURL(input.files[0]);
         }
-    }
+      }
 
-    $('#img').change(function() {
+      $('#img').change(function () {
         readURL(this);
-    });
-</script>
+      });
+    </script>
 
-<%- include ('../partials/adminFooter') %>
+    <%- include ('../partials/adminFooter') %>
+  </h2>
+</h2>
