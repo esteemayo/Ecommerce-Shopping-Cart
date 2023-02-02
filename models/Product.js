@@ -30,9 +30,9 @@ const productSchema = new mongoose.Schema({
       validator: function (val) {
         return val < this.price;
       },
-      message: 'Discount price ({VALUE}) must be less than regular price'
+      message: 'Discount price ({VALUE}) must be less than regular price',
     },
-    set: val => Math.round(val * 10) / 10
+    set: val => Math.round(val * 10) / 10,
   },
   image: {
     type: String,
