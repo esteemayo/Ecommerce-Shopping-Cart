@@ -22,7 +22,7 @@ const productSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: [true, 'A product must have a price']
+    required: [true, 'A product must have a price'],
   },
   priceDiscount: {
     type: Number,
