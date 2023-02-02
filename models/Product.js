@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    required: [true, 'A product must belong to a category']
+    required: [true, 'A product must belong to a category'],
   },
   price: {
     type: Number,
