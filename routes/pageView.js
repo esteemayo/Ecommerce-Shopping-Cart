@@ -1,4 +1,5 @@
 const express = require('express');
+
 const authController = require('../controllers/authController');
 const pageViewController = require('../controllers/pageViewController');
 const Page = require('../models/Page');
