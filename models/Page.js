@@ -8,27 +8,27 @@ const pageSchema = new mongoose.Schema({
 		unique: true,
 		trim: true,
 		maxlength: [10, 'A page title must have less or equal than 10 characters'],
-		minlength: [4, 'A page title must have more or equal than 4 characters']
+		minlength: [4, 'A page title must have more or equal than 4 characters'],
 	},
 	slug: {
 		type: String,
-		unique: true
+		unique: true,
 	},
 	content: {
 		type: String,
-		required: [true, 'A page must have a content']
+		required: [true, 'A page must have a content'],
 	},
 	sorting: {
-		type: Number
-	}
+		type: Number,
+	},
 });
 
-// DOCUMENT MIDDLEWARE
+// document middleware
 pageSchema.pre('save', function (next) {
 	this.slug = slugify(this.title, { lower: true });
 	next();
 });
 
-const Page = mongoose.model('Page', pageSchema);
+const Page = mongoose.models.Page || mongoose.model('Page', pageSchema);
 
 module.exports = Page;
