@@ -13,10 +13,10 @@ router.get('/', adminProductViewController.getProducts);
 
 router.get('/add-product', adminProductViewController.addProduct);
 
-router.post('/add-product', 
-    adminProductViewController.upload, 
-    adminProductViewController.resizeProductImages,
-    adminProductViewController.createProduct
+router.post('/add-product',
+  adminProductViewController.upload,
+  adminProductViewController.resizeProductImages,
+  adminProductViewController.createProduct
 );
 
 router.get('/edit-product/:id', adminProductViewController.getEditProduct);
