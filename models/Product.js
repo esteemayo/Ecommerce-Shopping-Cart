@@ -14,7 +14,7 @@ const productSchema = new mongoose.Schema({
   slug: String,
   description: {
     type: String,
-    required: [true, 'A product must have a description']
+    required: [true, 'A product must have a description'],
   },
   category: {
     type: String,
