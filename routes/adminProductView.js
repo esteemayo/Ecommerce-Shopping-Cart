@@ -1,5 +1,6 @@
 const express = require('express');
 const multer = require('multer');
+
 const authController = require('../controllers/authController');
 const adminProductViewController = require('../controllers/adminProductViewController');
 
