@@ -36,13 +36,13 @@ const productSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    default: 'noimage.png'
+    default: 'noimage.png',
   },
   imageGallery: [String],
   createdAt: {
     type: Date,
-    default: Date.now()
-  }
+    default: Date.now(),
+  },
 });
 
 productSchema.index({ price: 1, slug: -1 });
