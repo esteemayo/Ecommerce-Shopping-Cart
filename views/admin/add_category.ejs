@@ -1,17 +1,29 @@
 <%- include ('../partials/adminHeader') %>
 
-<h2 class="page-title">Add a category<h2>
-<a href="/admin/categories" class="btn btn-primary custom-btn">Back to all categories</a>
-<br><br>
+<h2 class="page-title">
+  Add a category
+  <h2>
+    <a href="/admin/categories" class="btn btn-primary custom-btn"
+      >Back to all categories</a
+    >
+    <br /><br />
 
-<!-- <form action="/admin/categories/add-category" method="post"> -->
-<form class="add-category">
-    <div class="form-group">
+    <!-- <form action="/admin/categories/add-category" method="post"> -->
+    <form class="add-category">
+      <div class="form-group">
         <label>Title</label>
-        <input type="text" name="title" id="title" placeholder="Title" class="form-control">
-    </div>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Title"
+          class="form-control"
+        />
+      </div>
 
-    <button class="btn btn-default custom-btn">Submit</button>
-</form>
+      <button class="btn btn-default custom-btn">Submit</button>
+    </form>
 
-<%- include ('../partials/adminFooter') %>
+    <%- include ('../partials/adminFooter') %>
+  </h2>
+</h2>
