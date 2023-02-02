@@ -1,21 +1,40 @@
 <%- include ('../partials/adminHeader') %>
 
-<h2 class="page-title">Edit a page<h2>
-<a href="/admin/pages" class="btn btn-primary">Back to all pages</a>
-<br><br>
+<h2 class="page-title">
+  Edit a page
+  <h2>
+    <a href="/admin/pages" class="btn btn-primary">Back to all pages</a>
+    <br /><br />
 
-<form action="/admin/pages/edit-page/<%= page.slug %>" method="post">
-    <div class="form-group">
+    <form action="/admin/pages/edit-page/<%= page.slug %>" method="post">
+      <div class="form-group">
         <label>Title</label>
-        <input type="text" name="title" value="<%= page.title %>" placeholder="Title" class="form-control">
-    </div>
+        <input
+          type="text"
+          name="title"
+          value="<%= page.title %>"
+          placeholder="Title"
+          class="form-control"
+        />
+      </div>
 
-    <div class="form-group">
+      <div class="form-group">
         <label>Content</label>
-        <textarea class="form-control" id="ta" name="content" cols="30" rows="10" placeholder="Content"><%= page.content %></textarea>
-    </div>
+        <textarea
+          class="form-control"
+          id="ta"
+          name="content"
+          cols="30"
+          rows="10"
+          placeholder="Content"
+        >
+<%= page.content %></textarea
+        >
+      </div>
 
-    <button class="btn btn-default">Submit</button>
-</form>
+      <button class="btn btn-default">Submit</button>
+    </form>
 
-<%- include ('../partials/adminFooter') %>
+    <%- include ('../partials/adminFooter') %>
+  </h2>
+</h2>
