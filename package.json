@@ -8,6 +8,8 @@
     "dev": "nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
     "debug": "ndb server.js",
+    "sample": "node ./dev-data/data/import-dev-data --import",
+    "blowitallaway": "node ./dev-data/data/import-dev-data --delete",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
     "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
   },
