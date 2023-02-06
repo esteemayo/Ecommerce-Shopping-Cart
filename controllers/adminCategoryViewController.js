@@ -1,8 +1,8 @@
-import Category from '../models/Category.js';
-import catchAsync from '../utils/catchAsync.js';
-import AppError from '../utils/appError.js';
+const Category = require('../models/Category');
+const catchAsync = require('../utils/catchAsync');
+const AppError = require('../utils/appError');
 
-export const getAllCategories = catchAsync(async (req, res, next) => {
+exports.getAllCategories = catchAsync(async (req, res, next) => {
   const categories = await Category.find();
 
   res.status(200).render('admin/categories', {
@@ -11,13 +11,13 @@ export const getAllCategories = catchAsync(async (req, res, next) => {
   });
 });
 
-export const addCategory = (req, res) => {
+exports.addCategory = (req, res) => {
   res.status(200).render('admin/add_category', {
     title: 'Add new category'
   });
 };
 
-export const getEditCategory = catchAsync(async (req, res, next) => {
+exports.getEditCategory = catchAsync(async (req, res, next) => {
   const { id: categoryId } = req.params;
 
   const category = await Category.findById(categoryId);
