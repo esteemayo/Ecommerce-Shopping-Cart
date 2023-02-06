@@ -9,11 +9,11 @@ const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
-// MODELS
+// models
 const Page = require('../models/Page');
 const Category = require('../models/Category');
 
-// ROUTES
+// routes
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const globalErrorHandler = require('../controllers/errorController');
@@ -30,31 +30,31 @@ const adminProductView = require('../routes/adminProductView');
 const adminCategoryView = require('../routes/adminCategoryView');
 const adminPageView = require('../routes/adminPageView');
 
-module.exports = app => {
+module.exports = (app) => {
   app.set('view engine', 'ejs');
   app.set('views', path.join(__dirname, '../views'));
 
   // GLOBAL MIDDLEWARES
 
-  // SERVING STATIC FILES
+  // serving static files
   app.use(express.static(path.join(__dirname, '../public')));
 
-  // SET SECURITY HTTP HEADERS
+  // set security HTTP headers
   app.use(helmet());
 
-  // DEVELOPMENT LOGGING
+  // development logging
   if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
   }
 
-  // EXPRESS SESSION MIDDLEWARE
+  // express session middleware
   app.use(session({
     secret: 'secret',
     resave: false,
     saveUninitialized: false
   }));
 
-  // LIMIT REQUEST FROM SOME API
+  // limit request from some API
   const limiter = rateLimit({
     max: 100,
     windowMs: 60 * 60 * 1000, // 1 Hour
@@ -67,7 +67,7 @@ module.exports = app => {
   //     next();
   // });
 
-  // GET ALL PAGES TO HEADER.EJS
+  // get all pages to header.ejs
   app.use(catchAsync(async (req, res, next) => {
     const pages = await Page.find().sort({ sorting: 1 });
     res.locals.pages = pages;
@@ -82,25 +82,27 @@ module.exports = app => {
     next();
   });
 
-  // GET ALL CATEGORIES TO HEADER.EJS
+  // get all categories to header.ejs
   app.use(async (req, res, next) => {
     const categories = await Category.find();
     res.locals.categories = categories;
     next();
   });
 
-  // BODY PARSER
+  // body parser
   app.use(express.json({ limit: '10kb' }));
   app.use(express.urlencoded({ extended: true, limit: '10kb' }));
+
+  // cookie parser middleware
   app.use(cookieParser());
 
-  // DATA SANITIZATION AGAINST NoSQL QUERY INJECTION
+  // data sanitization against noSQL query injection
   app.use(mongoSanitize());
 
-  // DATA SANITIZATION AGAINST XSS
+  // data sanitization against XSS
   app.use(xss());
 
-  // PREVENT PARAMETER POLLUTION
+  // prevent parameter pollution
   app.use(hpp({
     whitelist: [
       'price',
@@ -109,7 +111,7 @@ module.exports = app => {
     ]
   }));
 
-  // TEST MIDDLEWARE
+  // test middleware
   app.use((req, res, next) => {
     req.requestTime = new Date().toISOString();
     // console.log(req.headers);
@@ -117,6 +119,7 @@ module.exports = app => {
     next();
   });
 
+  // api routes
   app.use('/admin/pages', adminPageView);
   app.use('/admin/categories', adminCategoryView);
   app.use('/admin/products', adminProductView);
@@ -134,4 +137,4 @@ module.exports = app => {
   });
 
   app.use(globalErrorHandler);
-}
+};
