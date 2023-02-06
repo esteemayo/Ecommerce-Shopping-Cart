@@ -18,10 +18,14 @@ export const addCategory = (req, res) => {
 };
 
 export const getEditCategory = catchAsync(async (req, res, next) => {
-  const category = await Category.findById(req.params.id);
+  const { id: categoryId } = req.params;
+
+  const category = await Category.findById(categoryId);
 
   if (!category) {
-    return next(new AppError('No category found with that ID', 404));
+    return next(
+      new AppError(`No category found with that ID → ${categoryId}`, 404)
+    );
   }
 
   res.status(200).render('admin/edit_category', {
