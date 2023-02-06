@@ -1,8 +1,8 @@
-import express from 'express';
+const express = require('express');
 
 // start express app
 const app = express();
 
-// import './startup/routes'; (app);
+require('./startup/routes')(app);
 
-export default app;
+module.exports = app;
