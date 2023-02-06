@@ -5,8 +5,10 @@ const Category = require('../../models/Category');
 const Page = require('../../models/Page');
 const Product = require('../../models/Product');
 const User = require('../../models/User');
+const connectDb = require('../../startup/db');
 
-require('../../startup/db')();
+// database connection
+connectDb();
 
 // read JSON file
 const products = JSON.parse(fs.readFileSync(`${__dirname}/products.json`, 'utf-8'));
