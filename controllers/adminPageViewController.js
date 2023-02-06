@@ -1,8 +1,8 @@
-const Page = require('../models/Page');
-const catchAsync = require('../utils/catchAsync');
-const AppError = require('../utils/appError');
+import Page from '../models/Page.js';
+import catchAsync from '../utils/catchAsync.js';
+import AppError from '../utils/appError.js';
 
-exports.getAllPages = catchAsync(async (req, res, next) => {
+export const getAllPages = catchAsync(async (req, res, next) => {
   const pages = await Page.find().sort({ sorting: 1 });
 
   res.status(200).render('admin/pages', {
@@ -11,7 +11,7 @@ exports.getAllPages = catchAsync(async (req, res, next) => {
   });
 });
 
-// exports.getPage = catchAsync(async (req, res, next) => {
+// export const getPage = catchAsync(async (req, res, next) => {
 //     const page = await Page.findOne({ slug: 'home' });
 
 //     res.status(200).render('index', {
@@ -20,13 +20,13 @@ exports.getAllPages = catchAsync(async (req, res, next) => {
 //     });
 // });
 
-exports.getAddPage = (req, res, next) => {
+export const getAddPage = (req, res, next) => {
   res.render('admin/add_page', {
     title: 'Add page'
   });
 };
 
-exports.createAddPage = catchAsync(async (req, res, next) => {
+export const createAddPage = catchAsync(async (req, res, next) => {
   const page = await Page.findOne({ slug: req.body.slug });
   if (page) {
     return next(new AppError('Page slug exists, choose another.'));
@@ -41,7 +41,7 @@ exports.createAddPage = catchAsync(async (req, res, next) => {
   res.status(201).redirect('/admin/pages');
 });
 
-exports.getEditPage = catchAsync(async (req, res, next) => {
+export const getEditPage = catchAsync(async (req, res, next) => {
   const page = await Page.findOne({ slug: req.params.slug });
 
   if (!page) {
@@ -54,7 +54,7 @@ exports.getEditPage = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.updateEditPage = catchAsync(async (req, res, next) => {
+export const updateEditPage = catchAsync(async (req, res, next) => {
   const page = await Page.findOne({ slug: req.params.slug });
 
   if (!page) {
@@ -69,7 +69,7 @@ exports.updateEditPage = catchAsync(async (req, res, next) => {
   res.status(200).redirect(`/admin/pages/edit-page/${page.slug}`);
 });
 
-exports.deletePage = catchAsync(async (req, res, next) => {
+export const deletePage = catchAsync(async (req, res, next) => {
   const page = await Page.findByIdAndDelete(req.params.id);
 
   if (!page) {
@@ -79,7 +79,7 @@ exports.deletePage = catchAsync(async (req, res, next) => {
   res.status(200).redirect('/admin/pages');
 });
 
-exports.getReorderPage = catchAsync(async (req, res, next) => {
+export const getReorderPage = catchAsync(async (req, res, next) => {
   let ids = req.body['id'];
 
   sortPages(ids, async () => {
