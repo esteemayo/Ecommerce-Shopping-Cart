@@ -14,7 +14,7 @@ const categories = JSON.parse(fs.readFileSync(`${__dirname}/categories.json`, 'u
 const pages = JSON.parse(fs.readFileSync(`${__dirname}/pages.json`, 'utf-8'));
 const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
 
-// Iimport data into database
+// import data into database
 const importData = async () => {
   try {
     await Product.create(products);
