@@ -1,36 +1,36 @@
-import express from 'express';
-import morgan from 'morgan';
-import path from 'path';
-import rateLimit from 'express-rate-limit';
-import helmet from 'helmet';
-import mongoSanitize from 'express-mongo-sanitize';
-import xss from 'xss-clean';
-import hpp from 'hpp';
-import cookieParser from 'cookie-parser';
-import session from 'express-session';
+const express = require('express');
+const morgan = require('morgan');
+const path = require('path');
+const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
+const mongoSanitize = require('express-mongo-sanitize');
+const xss = require('xss-clean');
+const hpp = require('hpp');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 // MODELS
-import Page from '../models/Page.js';
-import Category from '../models/Category.js';
+const Page = require('../models/Page');
+const Category = require('../models/Category');
 
 // ROUTES
-import catchAsync from '../utils/catchAsync.js';
-import AppError from '../utils/appError.js';
-import globalErrorHandler from '../controllers/errorController.js';
-import authController from '../controllers/authController.js';
-import categoryRoute from '../routes/category.js';
-import pageRoute from '../routes/page.js';
-import productRoute from '../routes/products.js';
-import usersRoute from '../routes/users.js';
-import viewRoute from '../routes/view.js';
-import pageView from '../routes/pageView.js';
-import productView from '../routes/productView.js';
-import cartRoute from '../routes/cart.js';
-import adminProductView from '../routes/adminProductView.js';
-import adminCategoryView from '../routes/adminCategoryView.js';
-import adminPageView from '../routes/adminPageView.js';
+const catchAsync = require('../utils/catchAsync');
+const AppError = require('../utils/appError');
+const globalErrorHandler = require('../controllers/errorController');
+const authController = require('../controllers/authController');
+const categoryRoute = require('../routes/category');
+const pageRoute = require('../routes/page');
+const productRoute = require('../routes/products');
+const usersRoute = require('../routes/users');
+const viewRoute = require('../routes/view');
+const pageView = require('../routes/pageView');
+const productView = require('../routes/productView');
+const cartRoute = require('../routes/cart');
+const adminProductView = require('../routes/adminProductView');
+const adminCategoryView = require('../routes/adminCategoryView');
+const adminPageView = require('../routes/adminPageView');
 
-const routes = (app) => {
+module.exports = app => {
   app.set('view engine', 'ejs');
   app.set('views', path.join(__dirname, '../views'));
 
@@ -135,5 +135,3 @@ const routes = (app) => {
 
   app.use(globalErrorHandler);
 }
-
-export default routes;
