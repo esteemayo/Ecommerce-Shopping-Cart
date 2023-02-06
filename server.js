@@ -1,5 +1,5 @@
-const app = require('./app');
-require('./startup/db')();
+import app from './app.js';
+// require('./startup/db')();
 
 process.on('uncaughtException', err => {
   console.log('UNCAUGHT EXCEPTION! Shutting down...');
