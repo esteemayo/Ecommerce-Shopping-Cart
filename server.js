@@ -1,5 +1,5 @@
 const app = require('./app');
-require('./startup/db')();
+const connectDb = require('./startup/db');
 
 process.on('uncaughtException', err => {
   console.log('UNCAUGHT EXCEPTION!🔥 Shutting down...');
@@ -9,7 +9,8 @@ process.on('uncaughtException', err => {
 
 app.set('port', process.env.PORT || 9000);
 
-const server = app.listen(app.get('port'), () => {
+const server = app.listen(app.get('port'), async () => {
+  await connectDb();
   console.log(`App listening on port →  ${server.address().port}`);
 });
 
