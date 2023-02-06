@@ -27,7 +27,9 @@ export const getAddPage = (req, res, next) => {
 };
 
 export const createAddPage = catchAsync(async (req, res, next) => {
-  const page = await Page.findOne({ slug: req.body.slug });
+  const { slug } = req.params;
+
+  const page = await Page.findOne({ slug });
   if (page) {
     return next(new AppError('Page slug exists, choose another.'));
   }
@@ -42,10 +44,14 @@ export const createAddPage = catchAsync(async (req, res, next) => {
 });
 
 export const getEditPage = catchAsync(async (req, res, next) => {
-  const page = await Page.findOne({ slug: req.params.slug });
+  const { slug } = req.params;
+
+  const page = await Page.findOne({ slug });
 
   if (!page) {
-    return next(new AppError('There is no page with that name', 404));
+    return next(
+      new AppError(`There is no page with that name → ${slug}`, 404)
+    );
   }
 
   res.status(200).render('admin/edit_page', {
@@ -55,10 +61,14 @@ export const getEditPage = catchAsync(async (req, res, next) => {
 });
 
 export const updateEditPage = catchAsync(async (req, res, next) => {
-  const page = await Page.findOne({ slug: req.params.slug });
+  const { slug } = req.params;
+
+  const page = await Page.findOne({ slug });
 
   if (!page) {
-    return next(new AppError('There is no page with that name', 404));
+    return next(
+      new AppError(`There is no page with that name → ${slug}`, 404)
+    );
   }
 
   page.title = req.body.title;
@@ -70,10 +80,14 @@ export const updateEditPage = catchAsync(async (req, res, next) => {
 });
 
 export const deletePage = catchAsync(async (req, res, next) => {
-  const page = await Page.findByIdAndDelete(req.params.id);
+  const { id: pageId } = req.params;
+
+  const page = await Page.findByIdAndDelete(pageId);
 
   if (!page) {
-    return next(new AppError('There is no page with the given ID', 404));
+    return next(
+      new AppError(`There is no page with the given ID → ${pageId}`, 404)
+    );
   }
 
   res.status(200).redirect('/admin/pages');
